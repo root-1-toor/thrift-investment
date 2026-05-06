@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="About Thrift Investment Corporation — non-standard auto financing for Mid-Atlantic dealerships since 1963. No credit scores used in our approval process.">
+  <title>Dealerships — About Us | Thrift Investment</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #0d1f35;
+      --navy2: #152d4a;
+      --gold:  #c8982a;
+      --gold2: #e6b84a;
+      --cream: #f5f0e8;
+      --white: #ffffff;
+      --gray:  #6b7a8d;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0,0,0,.3);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .logo-text span { color: var(--gold); }
+
+    .header-contact {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.55);
+      text-align: right;
+      line-height: 1.6;
+    }
+    .header-contact strong { color: var(--gold2); font-weight: 500; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--navy);
+      padding: 72px 48px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(200,152,42,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(200,152,42,.04) 0px,
+        rgba(200,152,42,.04) 1px,
+        transparent 1px,
+        transparent 80px
+      );
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,.4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: rgba(255,255,255,.2); }
+    .breadcrumb .current { color: var(--gold); }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp .6s .1s forwards;
+    }
+
+    .page-hero h1 em {
+      font-style: normal;
+      color: var(--gold2);
+    }
+
+    .page-hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.5);
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp .6s .25s forwards;
+    }
+
+    /* ── LAYOUT ── */
+    .page-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 48px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR NAV ── */
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      opacity: 0;
+      animation: fadeUp .6s .3s forwards;
+    }
+
+    .sidebar-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(13,31,53,.12);
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .sidebar nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: all .2s;
+    }
+
+    .sidebar nav a:hover {
+      color: var(--navy);
+      border-left-color: var(--gold);
+      background: rgba(200,152,42,.06);
+    }
+
+    .sidebar nav a.active {
+      color: var(--navy);
+      border-left-color: var(--gold);
+      background: rgba(200,152,42,.08);
+      font-weight: 500;
+    }
+
+    .sidebar nav a .arrow { opacity: 0; transition: opacity .2s; font-size: 0.7rem; }
+    .sidebar nav a:hover .arrow,
+    .sidebar nav a.active .arrow { opacity: 1; }
+
+    .sidebar-tap {
+      margin-top: 32px;
+      background: var(--navy);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar-tap p {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-tap a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background .2s;
+    }
+    .sidebar-tap a:hover { background: var(--gold2); }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      opacity: 0;
+      animation: fadeUp .6s .4s forwards;
+    }
+
+    .content-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+
+    .content-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 24px 0 32px;
+    }
+
+    .content p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    /* highlight card */
+    .highlight-card {
+      background: var(--navy);
+      padding: 36px 40px;
+      margin: 40px 0;
+      border-left: 4px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card::before {
+      content: '!';
+      font-family: 'Playfair Display', serif;
+      font-size: 10rem;
+      font-weight: 900;
+      color: rgba(200,152,42,.07);
+      position: absolute;
+      right: 24px;
+      top: -20px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .highlight-card p {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.75;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .highlight-card strong {
+      color: var(--gold2);
+      font-weight: 600;
+    }
+
+    /* pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .pillar {
+      background: var(--white);
+      padding: 28px 28px 28px 24px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .pillar-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: rgba(200,152,42,.25);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pillar h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .pillar p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* disclaimer */
+    .disclaimer {
+      margin-top: 48px;
+      padding: 24px 28px;
+      background: rgba(13,31,53,.05);
+      border: 1px solid rgba(13,31,53,.1);
+    }
+
+    .disclaimer p {
+      font-size: 0.78rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .disclaimer strong { color: var(--navy); font-style: normal; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer p { font-size: 0.78rem; color: rgba(255,255,255,.3); }
+    footer a { color: rgba(255,255,255,.4); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { padding: 0 24px; }
+      .page-hero { padding: 48px 24px 40px; }
+      .page-body { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .sidebar { position: static; }
+      .pillars { grid-template-columns: 1fr; }
+      footer { padding: 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo-text">Thrift <span>Investment</span></a>
+    <div class="header-contact">
+      <strong>PO Box 538, Fords NJ 08863</strong><br>
+      P: 732.738.9100 &nbsp;|&nbsp; F: 732.738.1905
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="#">Dealerships</a>
+        <span>/</span>
+        <span class="current">About Us</span>
+      </div>
+      <h1>Dealerships <em>About Us</em></h1>
+      <p class="page-hero-sub">Non-standard auto financing for the Mid-Atlantic region since 1963.</p>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="page-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <p class="sidebar-label">Dealerships</p>
+      <nav>
+        <a href="deal-aboutus.html" class="active">About Us <span class="arrow">›</span></a>
+        <a href="https://thriftinvestment.com/deal-finance.php">Who We Finance <span class="arrow">›</span></a>
+        <a href="https://thriftinvestment.com/deal-forms.php">Dealer Forms <span class="arrow">›</span></a>
+        <a href="https://thriftinvestment.com/deal-contact.php">Contact Us <span class="arrow">›</span></a>
+      </nav>
+      <div class="sidebar-tap">
+        <p>Dealer Portal</p>
+        <a href="https://www.carletonasp.com/ThriftInvestment/LogIn.asp" target="_blank" rel="noopener">TAP Login &rarr;</a>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+      <p class="content-label">Who We Are</p>
+      <h2>About Us</h2>
+      <div class="content-divider"></div>
+
+      <p>Thrift Investment Corporation has been financing new and used automobiles for the non-standard credit market in the Mid-Atlantic region since 1963. Our substantial approval volume is generated among a broad-based community of hundreds of auto retailers area-wide. In an otherwise volatile industry, Thrift Investment is rooted in stability and is intensely focused on expanding our market share.</p>
+
+      <div class="highlight-card">
+        <p>The most significant way that we separate ourselves from other finance companies is that <strong>WE DON'T USE CREDIT SCORES</strong> in our credit approval process. Our decades of experience have taught us that non-standard lending requires case-by-case service that can't be determined by a credit score number.</p>
+      </div>
+
+      <p>Upon approval, Thrift Investment emphasizes customer service. We help our customers improve their credit profiles by utilizing our time-tested system to identify problems, intervene early to avoid delinquency and ensure that the loan is seen through to completion. By retaining and collecting our receivables, we have a vested interest in our dealers and customers.</p>
+
+      <p>Our fifty years of experience as a major force in consumer lending makes Thrift Investment the logical first choice for non-standard credit lending.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <h3>Stability</h3>
+          <p>Rooted in a stable foundation through decades of industry volatility — a partner you can rely on.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <h3>No Credit Scores</h3>
+          <p>Every application reviewed case-by-case. We look at the full picture, not just a number.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <h3>Customer Service</h3>
+          <p>We retain and collect our own receivables — giving us a vested interest in your success.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">04</div>
+          <h3>Experience</h3>
+          <p>Over 60 years as a major force in consumer lending across the Mid-Atlantic region.</p>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <p>This website is intended solely for independent and franchised automobile dealers and consumers to become familiar with Thrift Investment Corporation and its business policies. Thrift Investment Corporation provides indirect financing through auto retailers and <strong>DOES NOT OFFER</strong> direct financing to individual consumers. This website is not intended for individual consumers to obtain credit and does not constitute a solicitation, representation, approval or offer to extend credit to any individual consumer.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Thrift Investment Corporation. All rights reserved.</p>
+    <p>PO Box 538, Fords NJ 08863 &nbsp;|&nbsp; <a href="tel:7327389100">732.738.9100</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+
+# Redirect www to non-www (or flip it - pick one and stick to it)
+[[redirects]]
+  from = "https://www.thriftinvestment.com/*"
+  to   = "https://thriftinvestment.com/:splat"
+  status = 301
+  force  = true
+
+# Clean 404 fallback
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
