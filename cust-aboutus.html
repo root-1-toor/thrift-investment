@@ -116,7 +116,7 @@
       transition: color .2s;
     }
     .breadcrumb a:hover { color: var(--gold); }
-    .breadcrumb span { color: rgba(255,255,255,.2); }
+    .breadcrumb span { color: rgba(255,255,255,.5); }
     .breadcrumb .current { color: var(--gold); }
 
     .page-hero h1 {
@@ -185,7 +185,7 @@
       padding: 12px 16px;
       font-size: 0.88rem;
       font-weight: 400;
-      color: var(--gray);
+      color: #4a5568;
       text-decoration: none;
       border-left: 3px solid transparent;
       transition: all .2s;
@@ -195,6 +195,7 @@
       color: var(--navy);
       border-left-color: var(--gold);
       background: rgba(200,152,42,.06);
+      text-decoration: underline;
     }
 
     .sidebar nav a.active {
@@ -272,7 +273,7 @@
 
     .content p {
       font-size: 1rem;
-      color: var(--gray);
+      color: #4a5568;
       line-height: 1.85;
       margin-bottom: 24px;
     }
@@ -349,7 +350,7 @@
 
     .pillar p {
       font-size: 0.88rem;
-      color: var(--gray);
+      color: #4a5568;
       line-height: 1.7;
       margin: 0;
     }
@@ -364,7 +365,7 @@
 
     .disclaimer p {
       font-size: 0.78rem;
-      color: var(--gray);
+      color: #4a5568;
       line-height: 1.75;
       margin: 0;
       font-style: italic;
@@ -384,8 +385,8 @@
       gap: 16px;
     }
 
-    footer p { font-size: 0.78rem; color: rgba(255,255,255,.3); }
-    footer a { color: rgba(255,255,255,.4); text-decoration: none; }
+    footer p { font-size: 0.78rem; color: rgba(255,255,255,.7); }
+    footer a { color: rgba(255,255,255,.8); text-decoration: none; }
     footer a:hover { color: var(--gold); }
 
     /* ── ANIMATIONS ── */
@@ -432,8 +433,7 @@
   </section>
 
   <!-- BODY -->
-  <main>
-  <div class="page-body">
+  <main class="page-body">
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
@@ -451,7 +451,7 @@
     </aside>
 
     <!-- CONTENT -->
-    <main class="content">
+    <div class="content">
       <p class="content-label">Who We Are</p>
       <h2>About Us</h2>
       <div class="content-divider"></div>
@@ -492,9 +492,7 @@
       <div class="disclaimer">
         <p>This website is intended solely for independent and franchised automobile dealers and consumers to become familiar with Thrift Investment Corporation and its business policies. Thrift Investment Corporation provides indirect financing through auto retailers and <strong>DOES NOT OFFER</strong> direct financing to individual consumers. This website is not intended for individual consumers to obtain credit and does not constitute a solicitation, representation, approval or offer to extend credit to any individual consumer.</p>
       </div>
-    </main>
-
-  </div>
+    </div>
 
   </main>
 

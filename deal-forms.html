@@ -26,7 +26,7 @@
     .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:24px; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; }
     .breadcrumb a { color:rgba(255,255,255,.7); text-decoration:none; transition:color .2s; }
     .breadcrumb a:hover { color:var(--gold); }
-    .breadcrumb span { color:rgba(255,255,255,.2); }
+    .breadcrumb span { color:rgba(255,255,255,.5); }
     .breadcrumb .current { color:var(--gold); }
     .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:900; color:var(--white); line-height:1.1; margin-bottom:16px; opacity:0; animation:fadeUp .6s .1s forwards; }
     .page-hero h1 em { font-style:normal; color:var(--gold2); }
@@ -35,8 +35,9 @@
     .sidebar { position:sticky; top:96px; opacity:0; animation:fadeUp .6s .3s forwards; }
     .sidebar-label { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(13,31,53,.12); }
     .sidebar nav { display:flex; flex-direction:column; gap:2px; }
-    .sidebar nav a { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; font-size:0.88rem; color:var(--gray); text-decoration:none; border-left:3px solid transparent; transition:all .2s; }
-    .sidebar nav a:hover { color:var(--navy); border-left-color:var(--gold); background:rgba(200,152,42,.06); }
+    .sidebar nav a { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; font-size:0.88rem; color:#4a5568; text-decoration:none; border-left:3px solid transparent; transition:all .2s; }
+    .sidebar nav a:hover { color:var(--navy); border-left-color:var(--gold); background:rgba(200,152,42,.06); text-decoration:underline;   text-decoration: underline;
+    }
     .sidebar nav a.active { color:var(--navy); border-left-color:var(--gold); background:rgba(200,152,42,.08); font-weight:500; }
     .sidebar nav a .arrow { opacity:0; transition:opacity .2s; font-size:0.7rem; }
     .sidebar nav a:hover .arrow, .sidebar nav a.active .arrow { opacity:1; }
@@ -48,7 +49,7 @@
     .content-label { font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
     .content h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; color:var(--navy); line-height:1.2; }
     .content-divider { width:48px; height:3px; background:var(--gold); margin:24px 0 32px; }
-    .content p { font-size:1rem; color:var(--gray); line-height:1.85; margin-bottom:24px; }
+    .content p { font-size:1rem; color:#4a5568; line-height:1.85; margin-bottom:24px; }
     .forms-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 48px; }
     .form-card { background:var(--white); padding:24px; display:flex; align-items:center; gap:18px; text-decoration:none; border-left:3px solid transparent; transition:all .25s; }
     .form-card:hover { border-left-color:var(--gold); transform:translateX(4px); }
@@ -56,7 +57,7 @@
     .form-icon svg { width:20px; height:20px; fill:var(--gold); }
     .form-info { flex:1; min-width:0; }
     .form-info h3 { font-size:0.9rem; font-weight:600; color:var(--navy); margin-bottom:4px; line-height:1.3; }
-    .form-info span { font-size:0.75rem; color:var(--gray); letter-spacing:0.05em; text-transform:uppercase; }
+    .form-info span { font-size:0.75rem; color:#4a5568; letter-spacing:0.05em; text-transform:uppercase; }
     .form-arrow { font-size:1rem; color:var(--gold); opacity:0; transition:opacity .2s; }
     .form-card:hover .form-arrow { opacity:1; }
     .contracts-card { background:var(--navy); border-left:4px solid var(--gold); padding:32px 36px; }
@@ -97,7 +98,7 @@
     </div>
   </section>
 
-  <div class="page-body">
+  <main class="page-body">
     <aside class="sidebar">
       <p class="sidebar-label">Dealerships</p>
       <nav>
@@ -112,7 +113,7 @@
       </div>
     </aside>
 
-    <main class="content">
+    <div class="content">
       <p class="content-label">Downloads</p>
       <h2>Dealer Forms</h2>
       <div class="content-divider"></div>
@@ -178,8 +179,8 @@
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; 2026 Thrift Investment Corporation. All rights reserved.</p>

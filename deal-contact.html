@@ -26,7 +26,7 @@
     .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:24px; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; }
     .breadcrumb a { color:rgba(255,255,255,.7); text-decoration:none; transition:color .2s; }
     .breadcrumb a:hover { color:var(--gold); }
-    .breadcrumb span { color:rgba(255,255,255,.2); }
+    .breadcrumb span { color:rgba(255,255,255,.5); }
     .breadcrumb .current { color:var(--gold); }
     .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,5vw,4rem); font-weight:900; color:var(--white); line-height:1.1; margin-bottom:16px; opacity:0; animation:fadeUp .6s .1s forwards; }
     .page-hero h1 em { font-style:normal; color:var(--gold2); }
@@ -35,8 +35,9 @@
     .sidebar { position:sticky; top:96px; opacity:0; animation:fadeUp .6s .3s forwards; }
     .sidebar-label { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid rgba(13,31,53,.12); }
     .sidebar nav { display:flex; flex-direction:column; gap:2px; }
-    .sidebar nav a { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; font-size:0.88rem; color:var(--gray); text-decoration:none; border-left:3px solid transparent; transition:all .2s; }
-    .sidebar nav a:hover { color:var(--navy); border-left-color:var(--gold); background:rgba(200,152,42,.06); }
+    .sidebar nav a { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; font-size:0.88rem; color:#4a5568; text-decoration:none; border-left:3px solid transparent; transition:all .2s; }
+    .sidebar nav a:hover { color:var(--navy); border-left-color:var(--gold); background:rgba(200,152,42,.06); text-decoration:underline;   text-decoration: underline;
+    }
     .sidebar nav a.active { color:var(--navy); border-left-color:var(--gold); background:rgba(200,152,42,.08); font-weight:500; }
     .sidebar nav a .arrow { opacity:0; transition:opacity .2s; font-size:0.7rem; }
     .sidebar nav a:hover .arrow, .sidebar nav a.active .arrow { opacity:1; }
@@ -48,12 +49,12 @@
     .content-label { font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
     .content h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; color:var(--navy); line-height:1.2; }
     .content-divider { width:48px; height:3px; background:var(--gold); margin:24px 0 32px; }
-    .content p { font-size:1rem; color:var(--gray); line-height:1.85; margin-bottom:24px; }
+    .content p { font-size:1rem; color:#4a5568; line-height:1.85; margin-bottom:24px; }
     .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 40px; }
     .contact-card { background:var(--white); padding:28px 28px 28px 24px; border-top:3px solid var(--gold); }
     .contact-card-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
     .contact-card h3 { font-size:1rem; font-weight:600; color:var(--navy); margin-bottom:14px; }
-    .contact-card p { font-size:0.88rem; color:var(--gray); line-height:1.8; margin:0; }
+    .contact-card p { font-size:0.88rem; color:#4a5568; line-height:1.8; margin:0; }
     .contact-card a { color:var(--gold); text-decoration:none; }
     .contact-card a:hover { color:var(--gold2); }
     .map-card { background:var(--navy); overflow:hidden; margin:40px 0; }
@@ -69,7 +70,7 @@
     .staff-list { display:flex; flex-direction:column; gap:8px; }
     .staff-item { background:var(--white); padding:14px 20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
     .staff-name { font-size:0.9rem; font-weight:500; color:var(--navy); }
-    .staff-meta { font-size:0.8rem; color:var(--gray); }
+    .staff-meta { font-size:0.8rem; color:#4a5568; }
     .staff-meta a { color:var(--gold); text-decoration:none; }
     .staff-meta a:hover { color:var(--gold2); }
     footer { background:var(--navy); border-top:1px solid rgba(255,255,255,.06); padding:32px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
@@ -103,7 +104,7 @@
     </div>
   </section>
 
-  <div class="page-body">
+  <main class="page-body">
     <aside class="sidebar">
       <p class="sidebar-label">Dealerships</p>
       <nav>
@@ -118,7 +119,7 @@
       </div>
     </aside>
 
-    <main class="content">
+    <div class="content">
       <p class="content-label">Get in Touch</p>
       <h2>Contact Us</h2>
       <div class="content-divider"></div>
@@ -215,8 +216,8 @@
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; 2026 Thrift Investment Corporation. All rights reserved.</p>
