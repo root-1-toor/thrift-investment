@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Contact Thrift Investment Corporation — address, phone, hours of operation, and staff directory for customer service and operations.">
+  <title>Customers — Contact Us | Thrift Investment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap&font-display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:  #0d1f35; --navy2: #152d4a;
+      --gold:  #c8982a; --gold2: #e6b84a;
+      --cream: #f5f0e8; --white: #ffffff; --gray: #6b7a8d;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+    header { background: var(--navy); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 72px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,.3); }
+    .logo-text { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
+    .logo-text span { color: var(--gold); }
+    .header-contact { font-size: 0.8rem; color: rgba(255,255,255,.8); text-align: right; line-height: 1.6; }
+    .header-contact strong { color: var(--gold2); font-weight: 500; }
+
+    .page-hero { background: var(--navy); padding: 72px 48px 64px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 20% 50%, rgba(200,152,42,.1) 0%, transparent 70%); pointer-events: none; }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(200,152,42,.04) 0px, rgba(200,152,42,.04) 1px, transparent 1px, transparent 80px); pointer-events: none; }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .breadcrumb a { color: rgba(255,255,255,.7); text-decoration: none; transition: color .2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: rgba(255,255,255,.2); }
+    .breadcrumb .current { color: var(--gold); }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px; opacity: 0; animation: fadeUp .6s .1s forwards; }
+    .page-hero h1 em { font-style: normal; color: var(--gold2); }
+    .page-hero-sub { font-size: 1rem; color: rgba(255,255,255,.8); font-weight: 300; opacity: 0; animation: fadeUp .6s .25s forwards; }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 72px 48px; display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; }
+
+    .sidebar { position: sticky; top: 96px; opacity: 0; animation: fadeUp .6s .3s forwards; }
+    .sidebar-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(13,31,53,.12); }
+    .sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+    .sidebar nav a { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; font-size: 0.88rem; font-weight: 400; color: var(--gray); text-decoration: none; border-left: 3px solid transparent; transition: all .2s; }
+    .sidebar nav a:hover { color: var(--navy); border-left-color: var(--gold); background: rgba(200,152,42,.06); }
+    .sidebar nav a.active { color: var(--navy); border-left-color: var(--gold); background: rgba(200,152,42,.08); font-weight: 500; }
+    .sidebar nav a .arrow { opacity: 0; transition: opacity .2s; font-size: 0.7rem; }
+    .sidebar nav a:hover .arrow, .sidebar nav a.active .arrow { opacity: 1; }
+    .sidebar-privacy { margin-top: 32px; background: var(--navy); padding: 20px; text-align: center; }
+    .sidebar-privacy p { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 12px; }
+    .sidebar-privacy a { display: inline-block; color: var(--gold2); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; padding: 10px 20px; border: 1px solid rgba(200,152,42,.35); transition: all .2s; }
+    .sidebar-privacy a:hover { background: rgba(200,152,42,.1); border-color: var(--gold); }
+
+    .content { opacity: 0; animation: fadeUp .6s .4s forwards; }
+    .content-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .content h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .content-divider { width: 48px; height: 3px; background: var(--gold); margin: 24px 0 32px; }
+    .content p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 24px; }
+
+    /* contact grid */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 40px; }
+
+    .contact-card { background: var(--white); padding: 28px 28px 28px 24px; border-top: 3px solid var(--gold); }
+    .contact-card-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .contact-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+    .contact-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.8; margin: 0; }
+    .contact-card a { color: var(--gold); text-decoration: none; }
+    .contact-card a:hover { color: var(--gold2); }
+
+    .map-card { background: var(--navy); padding: 0; overflow: hidden; margin: 40px 0; }
+    .map-card iframe { width: 100%; height: 320px; border: none; display: block; filter: grayscale(20%); }
+    .map-card-footer { padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .map-card-footer p { font-size: 0.82rem; color: rgba(255,255,255,.7); }
+    .map-card-footer a { font-size: 0.8rem; color: var(--gold2); text-decoration: none; font-weight: 500; letter-spacing: 0.05em; }
+    .map-card-footer a:hover { color: var(--gold); }
+
+    /* staff section */
+    .staff-section { margin-top: 40px; }
+    .staff-section-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(13,31,53,.12); }
+    .staff-group { margin-bottom: 32px; }
+    .staff-group h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 12px; }
+    .staff-list { display: flex; flex-direction: column; gap: 8px; }
+    .staff-item { background: var(--white); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .staff-name { font-size: 0.9rem; font-weight: 500; color: var(--navy); }
+    .staff-meta { font-size: 0.8rem; color: var(--gray); }
+    .staff-meta a { color: var(--gold); text-decoration: none; }
+    .staff-meta a:hover { color: var(--gold2); }
+
+    /* customer service routing */
+    .routing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 32px; }
+    .routing-card { background: var(--navy); padding: 24px; border-left: 3px solid var(--gold); }
+    .routing-card p { font-size: 0.88rem; color: rgba(255,255,255,.85); line-height: 1.7; margin: 0; }
+    .routing-card strong { color: var(--gold2); display: block; margin-bottom: 6px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.06); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    footer p { font-size: 0.78rem; color: rgba(255,255,255,.7); }
+    footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      header { padding: 0 24px; }
+      .page-hero { padding: 48px 24px 40px; }
+      .page-body { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .sidebar { position: static; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .routing-cards { grid-template-columns: 1fr; }
+      footer { padding: 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo-text">Thrift <span>Investment</span></a>
+    <div class="header-contact">
+      <strong>PO Box 538, Fords NJ 08863</strong><br>
+      P: 732.738.9100 &nbsp;|&nbsp; F: 732.738.1905
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <a href="cust-aboutus.html">Customers</a><span>/</span>
+        <span class="current">Contact Us</span>
+      </div>
+      <h1>Contact <em>Us</em></h1>
+      <p class="page-hero-sub">We answer the phone or return voicemail as soon as possible.</p>
+    </div>
+  </section>
+
+  <div class="page-body">
+    <aside class="sidebar">
+      <p class="sidebar-label">Customers</p>
+      <nav>
+        <a href="cust-aboutus.html">About Us <span class="arrow">›</span></a>
+        <a href="cust-finance.html">Who We Finance <span class="arrow">›</span></a>
+        <a href="cust-pay.html">How to Pay <span class="arrow">›</span></a>
+        <a href="cust-contact.html" class="active">Contact Us <span class="arrow">›</span></a>
+      </nav>
+      <div class="sidebar-privacy">
+        <p>Legal</p>
+        <a href="https://thriftinvestment.com/images/pdf/Privacy_Policy.pdf" target="_blank" rel="noopener">Privacy Notice &rarr;</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <p class="content-label">Get in Touch</p>
+      <h2>Contact Us</h2>
+      <div class="content-divider"></div>
+
+      <p>It is our policy to answer the phone or return voicemail as soon as possible. We pride ourselves on our prompt turnaround time for customers and business contacts.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-card-label">Physical Address</p>
+          <h3>Office Location</h3>
+          <p>
+            720 King Georges Post Rd.<br>
+            2nd Floor – Suite 211<br>
+            Fords, NJ 08863<br><br>
+            <a href="tel:7327389100">P: 732.738.9100</a><br>
+            F: 732.738.1905
+          </p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-card-label">Office Hours</p>
+          <h3>Hours of Operation</h3>
+          <p>
+            Monday – Thursday &nbsp; 9:00 AM – 6:00 PM<br>
+            Friday &nbsp; 9:00 AM – 5:00 PM<br>
+            Saturday &nbsp; 9:00 AM – 12:00 PM<br>
+            Sunday &nbsp; Closed
+          </p>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <iframe
+          src="https://maps.google.com/maps?q=720+King+Georges+Post+Road,+Fords,+NJ+08863&output=embed"
+          title="Thrift Investment office location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-card-footer">
+          <p>720 King Georges Post Rd, Suite 211, Fords NJ 08863</p>
+          <a href="https://maps.google.com/maps?q=720+King+Georges+Post+Road,+Fords,+NJ+08863" target="_blank" rel="noopener">Get Directions &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Customer Service Routing -->
+      <div class="staff-section">
+        <p class="staff-section-label">Customer Service</p>
+
+        <p>To reach the right representative, please use the extension that corresponds to the first letter of the last name on your account.</p>
+
+        <div class="routing-cards">
+          <div class="routing-card">
+            <p><strong>Last name A – K</strong>Call 732.738.9100 ext 601<br>or fax to 732.738.1905</p>
+          </div>
+          <div class="routing-card">
+            <p><strong>Last name L – Z</strong>Call 732.738.9100 ext 602<br>or fax to 732.738.1905</p>
+          </div>
+        </div>
+
+        <div class="staff-group">
+          <h3>Collections</h3>
+          <div class="staff-list">
+            <div class="staff-item">
+              <span class="staff-name">Dave Hojnowski — Vice President</span>
+              <span class="staff-meta">ext 120 &nbsp;|&nbsp; <a href="mailto:daveh@thriftinvestment.com">daveh@thriftinvestment.com</a></span>
+            </div>
+            <div class="staff-item">
+              <span class="staff-name">Galo Limongi</span>
+              <span class="staff-meta">ext 130 &nbsp;|&nbsp; <a href="mailto:glimongi@thriftinvestment.com">glimongi@thriftinvestment.com</a></span>
+            </div>
+            <div class="staff-item">
+              <span class="staff-name">Alec Diarbekirian</span>
+              <span class="staff-meta">ext 121 &nbsp;|&nbsp; <a href="mailto:alecd@thriftinvestment.com">alecd@thriftinvestment.com</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="staff-group">
+          <h3>Operations / Internal</h3>
+          <div class="staff-list">
+            <div class="staff-item">
+              <span class="staff-name">Ankush Goyal — Vice President</span>
+              <span class="staff-meta">ext 187 &nbsp;|&nbsp; <a href="mailto:agoyal@thriftinvestment.com">agoyal@thriftinvestment.com</a></span>
+            </div>
+            <div class="staff-item">
+              <span class="staff-name">Michelle Kerzic — Internal Manager</span>
+              <span class="staff-meta">ext 146 &nbsp;|&nbsp; <a href="mailto:mkerzic@thriftinvestment.com">mkerzic@thriftinvestment.com</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Thrift Investment Corporation. All rights reserved.</p>
+    <p>PO Box 538, Fords NJ 08863 &nbsp;|&nbsp; <a href="tel:7327389100">732.738.9100</a></p>
+  </footer>
+
+</body>
+</html>
