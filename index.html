@@ -8,7 +8,9 @@
   <meta name="keywords" content="auto financing, car loans, non-standard credit, Mid-Atlantic, New Jersey, dealerships">
   <title>Thrift Investment | Our Experience Makes Your Deals</title>
 
-  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap&font-display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,12 +60,36 @@
     .logo-text span { color: var(--gold); }
 
     .header-contact {
-      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+    .header-contact-full {
+      font-size: 0.78rem;
       color: rgba(255,255,255,0.8);
       text-align: right;
-      line-height: 1.6;
+      line-height: 1.7;
     }
-    .header-contact strong { color: var(--gold2); font-weight: 500; }
+    .header-contact-full strong { color: var(--gold2); font-weight: 500; }
+    .header-phone-btn {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,152,42,.15);
+      border: 1px solid rgba(200,152,42,.35);
+      color: var(--gold2);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 14px;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .header-phone-btn:hover { background: rgba(200,152,42,.25); }
+    .header-phone-btn svg { width: 15px; height: 15px; fill: var(--gold2); flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .header-contact-full { display: none; }
+      .header-phone-btn { display: flex; }
+    }
 
     /* ── HERO ── */
     .hero {
@@ -455,8 +481,8 @@
     }
 
     /* ── RESPONSIVE ── */
-   @media (max-width: 768px) {
-       header { padding: 0 24px; }
+    @media (max-width: 768px) {
+      header { padding: 0 24px; }
       .hero-inner { padding: 48px 20px; }
       .portals { padding: 0; }
       .portals-inner { grid-template-columns: 1fr; }
@@ -469,6 +495,59 @@
       footer { padding: 24px; flex-direction: column; text-align: center; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Thrift Investment Corporation",
+    "url": "https://thriftinvestment.com",
+    "logo": "https://thriftinvestment.com/images/logo.gif",
+    "description": "Financing new and used automobiles for the non-standard credit market in the Mid-Atlantic region since 1963.",
+    "foundingDate": "1963",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "720 King Georges Post Road, Suite 211",
+      "addressLocality": "Fords",
+      "addressRegion": "NJ",
+      "postalCode": "08863",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.5312,
+      "longitude": -74.3091
+    },
+    "telephone": "+1-732-738-9100",
+    "faxNumber": "+1-732-738-1905",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Mid-Atlantic United States"
+    },
+    "sameAs": [
+      "https://thriftinvestment.com"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -476,8 +555,14 @@
   <header>
     <a href="/" class="logo-text">Thrift <span>Investment</span></a>
     <div class="header-contact">
-      <strong>PO Box 538, Fords NJ 08863</strong><br>
-      P: 732.738.9100 &nbsp;|&nbsp; F: 732.738.1905
+      <div class="header-contact-full">
+        <strong>PO Box 538, Fords NJ 08863</strong><br>
+        P: 732.738.9100 &nbsp;|&nbsp; F: 732.738.1905
+      </div>
+      <a href="tel:7327389100" class="header-phone-btn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        732.738.9100
+      </a>
     </div>
   </header>
 
