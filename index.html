@@ -610,15 +610,15 @@
   <section class="stats">
     <div class="stats-inner">
       <div>
-        <span class="stat-num">60+</span>
+        <span class="stat-num" data-target="63" data-suffix="+">0+</span>
         <span class="stat-label">Years in Business</span>
       </div>
       <div>
-        <span class="stat-num">NJ</span>
+        <span class="stat-num" data-target="0" data-text="NJ">NJ</span>
         <span class="stat-label">Mid-Atlantic Region</span>
       </div>
       <div>
-        <span class="stat-num">1963</span>
+        <span class="stat-num" data-target="1963" data-prefix="">0</span>
         <span class="stat-label">Year Founded</span>
       </div>
     </div>
@@ -659,5 +659,31 @@
     <p>PO Box 538, Fords NJ 08863 &nbsp;|&nbsp; <a href="tel:7327389100">732.738.9100</a></p>
   </footer>
 
+  <script>
+    const counters = document.querySelectorAll('.stat-num[data-target]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.dataset.text) return; // skip NJ - static text
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const start = performance.now();
+        const startVal = target === 1963 ? 1900 : 0;
+        const animate = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3); // ease out cubic
+          const current = Math.floor(startVal + (target - startVal) * ease);
+          el.textContent = current + suffix;
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
